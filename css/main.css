@@ -187,3 +187,32 @@ main .release-date {
   max-width: 300px;
 }
 /* popup nd */
+
+@media screen and (max-width: 768px) {
+  p {
+    font-size: 14px;
+  }
+  main .item {
+    width: 100%;
+  }
+  main .textbox {
+    flex-direction: column;
+  }
+  main .textbox .title {
+    font-size: 32px;
+  }
+  .popup-content {
+    width: 95%;
+  }
+  .popup-overview h2 {
+    font-size: 18px;
+  }
+  .popup-content .content-area {
+    align-items: flex-start;
+  }
+  .popup-content .text-area {
+    font-size: 12px;
+    height: 200px;
+    overflow-y: scroll;
+  }
+}
