@@ -89,10 +89,17 @@ fetch(
   "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
   options
 )
-  .then((response) => response.json())
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("서버 응답이 원활하지 않습니다.");
+    }
+    return response.json();
+  })
   .then((data) => {
     movies = data.results;
-
     displayMovies(movies);
   })
-  .catch((err) => console.error(err));
+  .catch((error) => {
+    console.log("데이터를 불러오는 중 오류가 발생했습니다: ", error.message);
+    alert("데이터를 불러오는 중 오류가 발생했습니다. 다시 시도해주세요.");
+  });
